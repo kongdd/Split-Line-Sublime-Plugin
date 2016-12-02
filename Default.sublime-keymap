@@ -1,0 +1,7 @@
+// Default.sublime-keymap
+[
+	{
+		"keys": ["ctrl+shift+\\"],
+		"command": "split_line"
+	}
+]
