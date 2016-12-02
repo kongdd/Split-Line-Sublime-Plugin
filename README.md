@@ -45,3 +45,12 @@ def my_function(
 ):
 	pass
 ```
+
+##Installation##
+
+Clone this repo into your sublime `Packages` folder.
+
+```
+cd ~/.config/sublime-text-3/Packages/
+git clone https://github.com/stevebasher/Split-Line-Sublime-Plugin.git
+```
