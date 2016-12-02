@@ -3,6 +3,8 @@ import sublime, sublime_plugin
 class SplitLineCommand(sublime_plugin.TextCommand):
     def run(self, edit, **args):
         def split_text(selected_text, indent_size):
+            original_text = selected_text
+
             num_tabs = int(int(indent_size)/4)
 
             remainder = int(indent_size - 4*num_tabs)
@@ -48,7 +50,13 @@ class SplitLineCommand(sublime_plugin.TextCommand):
             multi_line_text = None
 
             if "\n" not in selected_text:
-                if ',' in selected_text or (lb_loc is not None and rb_loc is not None):
+                if (
+                    (
+                        ',' in selected_text.strip(' ')
+                        and selected_text.strip(' ').index(',') != len(selected_text.strip(' '))-1
+                    )
+                    or (lb_loc is not None and rb_loc is not None)
+                ):
 
                     tarray = []
                     l1 = 0
@@ -93,7 +101,7 @@ class SplitLineCommand(sublime_plugin.TextCommand):
             else:
                 print('Does not work over multiple lines.')
 
-            return selected_text, []
+            return original_text, []
 
 
 
