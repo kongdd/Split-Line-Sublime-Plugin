@@ -1,7 +1,7 @@
 
 #Split Line Sublime Plugin#
 
-Using `ctrl+shift+\` or the context menu option split a single-line array into multiple lines. Developed for `Python` but can be used with any comma-seperated array.
+Using `ctrl+shift+\` (``ctrl+shift+` `` for OSX) or the context menu option split a single-line array into multiple lines. Developed for `Python` but can be used with any comma-seperated array.
 
 ##Examples##
 
@@ -50,7 +50,16 @@ def my_function(
 
 Clone this repo into your sublime `Packages` folder.
 
+###Linux###
+
 ```
 cd ~/.config/sublime-text-3/Packages/
+git clone https://github.com/stevebasher/Split-Line-Sublime-Plugin.git
+```
+
+###OSX###
+
+```
+cd ~/Library/Application\ Support/Sublime\ Text\ 3/Packages/
 git clone https://github.com/stevebasher/Split-Line-Sublime-Plugin.git
 ```
