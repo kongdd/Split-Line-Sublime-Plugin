@@ -6,6 +6,8 @@ class SplitLineCommand(sublime_plugin.TextCommand):
             return txt.strip(' ').strip('\t').strip(' ')
 
         def split_text(selected_text, indent_size):
+            settings = sublime.load_settings('Split_Line.sublime-settings')
+
             original_text = selected_text
 
             num_tabs = int(int(indent_size)/4)
@@ -88,12 +90,13 @@ class SplitLineCommand(sublime_plugin.TextCommand):
                             tarray.append(selected_text[l1:i+1].strip(' '))
 
                     # Call iteratively on tarray memebers
-                    for i, t in enumerate(tarray):
-                        if (
-                            ('(' in t or '[' in t or '{' in t)
-                            and remove_ws(t) not in ['(', ')', '[', ']', '{', '}']
-                        ):
-                            _, tarray[i:i+1] = split_text(t, indent_size)
+                    if settings.get('recursive_split', False):
+                        for i, t in enumerate(tarray):
+                            if (
+                                ('(' in t or '[' in t or '{' in t)
+                                and remove_ws(t) not in ['(', ')', '[', ']', '{', '}']
+                            ):
+                                _, tarray[i:i+1] = split_text(t, indent_size)
 
                     full_array = [pre_multi]
                     full_array.extend(["\t"+t for t in tarray])

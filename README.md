@@ -3,6 +3,8 @@
 
 Using `ctrl+shift+\` (``ctrl+shift+` `` for OSX) or the context menu option split a single-line array into multiple lines. Developed for `Python` but can be used with any comma-seperated array.
 
+Turn recursive splitting on/off through the sublime-settings file for the plugin.
+
 ##Examples##
 
 ```python
@@ -21,7 +23,15 @@ array = [
 ```python
 array = (1, 2, {3, 4}, 5,)
 
-# Becomes
+# Normally:
+array = (
+	1,
+	2,
+	{3, 4},
+	5,
+)
+
+# With recursive_split = true:
 array = (
 	1,
 	2,
